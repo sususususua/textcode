@@ -1,0 +1,23 @@
+@charset "utf-8";
+body{
+    font-family:"맑은 고딕";
+    margin: 0%;
+}
+header{
+    width: 100%;
+    border: 1px solid black;
+}
+content{
+    width:100%;
+    border: 1px solid black;
+}
+footer{
+    border: 1px solid black;
+}
+
+.thum>li p{
+    border: 1px solid black;
+}
+.thum li img{
+    width: 100%;
+}
