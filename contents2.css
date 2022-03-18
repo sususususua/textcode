@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+body{
+    font-family:"맑은 고딕";
+    color:black;
+    margin:0;
+    background-image:url(../images/slider6.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    
+}
+a{
+    color:#333333;
+    text-decoration: none;
+}
+a:hover{
+    color:black;
+}
+img{
+    vertical-align: bottom;
+}
+table,td,th{
+    border:1px solid black;
+    border-collapse:collapse;
+}
+*{
+    box-sizing: border-box;
+}
+
+
+
+header{
+  width:100%; /* main의 너비를 사용 */
+  height:150px; /*헤더의 높이 변동사항 */
+  border:1px solid transparent; /* 구분하기 위한 테두리, 확인 후 삭제 또는 변경 */
+  position:relative;
+  background-color:rgba(255,255,255,0.8);
+}
+.header-wrap{
+width:100%;
+max-width:1320px;
+height:100%;
+margin:auto;
+position:relative;
+border:1px solid transparent;
+}
+.wrap{
+  width:100%;
+  max-width:1320px; /* main의 너비를 사용 */
+  height:2000px;
+  margin:auto;
+  padding-bottom:10%;
+  border:1px solid transparent; /* 구분하기 위한 테두리, 확인 후 삭제 또는 변경 */
+  background-color:rgba(255,255,255,0.8);
+}
+
+footer{
+  width:100%; /* main의 너비를 사용 */
+  height:100px; /*푸터의 높이 변동사항 */
+  margin:auto;
+  border:1px solid black; /* 구분하기 위한 테두리, 확인 후 삭제 또는 변경 */
+  background-color:black;
+  color:white;
+}
+.footer-wrap{
+  width:100%;
+  height:100%;
+  max-width:1320px;
+  display:flex;
+  justify-content: center;
+  align-items: center;;
+}
+
+
+/* 헤더 재구성 */
+
+.mobile-nav{
+  position:absolute;
+  width:30px;
+  height:30px;
+  border:1px solid black;
+  top:30px;
+  left:20px;
+}
+.m-bt{
+  width:100%;
+  height:100%;
+  border:none;
+  background-color:transparent;
+}
+
+h1{
+  width:150px;
+  height:50px;
+  background-color:#999999;
+  margin:auto;
+  margin-top:30px;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+.login-g{
+  position:absolute;
+  width:300px;
+  height:40px;
+  background-color:transparent;
+  right:20px;
+  top:30px;
+  text-align:center;
+  display: flex;
+  align-items:center;
+}
+.login-g a{
+  display:inline-block;
+  margin:0 5px;
+}
+nav{
+  width:100%;
+  margin:auto;
+  border-bottom:1px solid transparent;
+  background-color:white;
+  position:static;
+  top:-100px;
+  left:0;
+  z-index:9999999;
+  transition:0.5s;
+}
+.nav-wrap{
+width: 100%;
+max-width: 1000px;
+margin: auto;
+height: 50px;
+background-color: #333333;
+}
+.nav-top{
+  position:fixed;
+  top:0;
+}
+
+.main-nav{
+  width:80%;
+  max-width:1000px;
+  height:100%;
+  background-color:burlywood;
+  padding:0 10px;
+  margin:auto;
+  list-style:none;
+  display:flex;
+  align-items: center;
+}
+.main-nav>li{
+  width:20%;
+  height:40px;
+  background-color:rgb(233, 213, 187);
+  text-align:center;
+  border-right:1px solid black;
+  position:relative;
+  z-index:9999999;
+}
+.main-nav>li>a{
+  display:block;
+  padding:7px;
+  height:100%;
+  
+}
+.main-nav>li>a:hover{
+  background-color:rgb(110, 86, 54);
+  color:white;
+}
+.main-nav>li>a.n-active{
+  background-color:rgb(110, 86, 54);
+  color:white;
+}
+.main-nav>li:last-child{
+  border-right:none;
+}
+.line{
+  width:80%;
+  background-color:white;
+  height:1px;
+  border:none;
+  margin:5px auto; /* margin:5px 10% */
+  /* float:left; */
+  transform:scale(0);
+  transition:0.7s;
+  /* width:0;
+  clear:both; */
+}
+.main-nav>li>a span{
+  display:block;
+}
+/* .main-nav>li>a:hover .line{
+  transform:scale(1);
+  width:80%;
+} */
+.l-active{
+  transform:scale(1);
+}
+.drop-down{
+  position:absolute;
+  width:100%;
+  padding:0;
+  margin:0;
+  list-style:none;
+  background-color:rgb(110, 86, 54);
+  /* css로만 동작 */
+  /* overflow: hidden;
+  height:0;
+  transition:0.3s; */
+  display:none;
+}
+.drop-down>li{
+  
+}
+.drop-down>li>a{
+  display: block;
+  padding:10px;
+  color:orange;
+}
+.drop-down>li>a:hover{
+  background-color:black;
+  color:white;
+}
+
+/* .main-nav>li:hover .drop-down{
+  height:200px;
+} */
+
+.full-drop{
+  position:absolute;
+  width:100%;
+  height:250px;
+  
+  left:0;
+  top:145px;
+  display:none;
+}
+.full-content{
+  width:80%;
+  max-width:1000px;
+  margin:auto;
+  height:100%;
+  background-color:pink;
+}
+
+.thum-click{
+  width:100%;
+  margin:100px 0;
+}
+
+.thum{
+  width:90%;
+  padding:0;
+  margin:auto;
+  list-style:none;
+  display:flex;
+}
+.thum>li{
+  width:20%;
+  margin-left:4%;
+  margin-bottom:20px;
+}
+.thum>li img{
+  width:100%;
+}
+.thum>li p{
+  margin:0;
+  padding:10px;
+  background-color:white;
+}
+.thum>li>a>span{
+  display: none;
+}
+.thum>li>a:focus{
+  outline:none;
+  filter:none;
+}
+.thum-content{
+  width:90%;
+  margin:auto;
+  padding:10px;
+  background-color:white;
+  position:relative;
+  padding-bottom:50px;
+  display:none;
+}
+.thum-content h3{
+  text-align:center;
+  font-size:1.5em;
+}
+.thum-content p{
+  text-align:center;
+}
+.thum-content div{
+  width:60%;
+  margin:auto;
+}
+.thum-content div img{
+  width:100%;
+}
+.thum-close{
+  position:absolute;
+  width:50px;
+  height:50px;
+  right:20px;
+  top:20px;
+  background-color:transparent;
+  border:none;
+}
+.filter{
+  filter:grayscale(100%)
+}
+
+.thum-hover{
+  width:100%;
+  margin:100px auto;
+}
+.thum2{
+  width:80%;
+  padding:0;
+  margin:auto;
+  list-style:none;
+  display: flex;
+}
+.thum2 li{
+  width:30%;
+  background-color:white;
+  margin-left:2.5%;
+  position:relative;
+}
+.thum2 li a{
+
+}
+.thum li a div{
+  width:100%;
+}
+.thum2 li a div img{
+  width:100%;
+}
+.thum2 li a p{
+  margin:0;/*p태그 기본 마진 값이 있다 */
+  padding:10px;
+}
+.img-hover{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  background-color:white;
+  padding:15px;
+  border-radius:5px;
+  box-shadow:0 0 5px #aaaaaa;
+  transform:scale(0);
+  transition:0.5s;
+  z-index:999;
+  /* height:250px; */
+  overflow:auto;
+  -ms-overflow-style: none;
+  scrollbar-width:none;
+}
+.img-trans{
+  transform:scale(1.2);
+}
+.img-hover::-webkit-scrollbar{
+  display:none;
+}
+.img-hover h3{
+  text-align:center;
+  margin:5px 0;
+}
+.img-hover div{
+  width:100%;
+}
+.img-hover div img{
+  width:100%;
+}
+.hover-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background-color:transparent;
+  border:none;
+  cursor:pointer;
+}
+/* .thum2 li:hover .img-hover{
+  transform:scale(1.2);
+} */
+
