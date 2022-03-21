@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="keyword" content="키워드 작성, 키워드와 키워드는 쉼표로 구분">
+        <meta name="description" content="문서의 설명, 검색 결과에 표시되는 문자를 지정">
+        <meta name="author" content="소유자">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="형식">
+        <meta property="og:title" content="페이지 제목">
+        <meta property="og:description" content="페이지 설명">
+        <meta property="og:image" content="대표 이미지">
+        <meta property="og:url" content="http://www.comlearn.co.kr">
+        <title>기본작성입니다.</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="css/contents3.css " rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            /* 디자인 구역 */
+            
+        </style>
+        <script>
+            // Javascript, jQuery 작성 script 구역
+            $(document).ready(function(){
+                $(".main-nav>li").hover(
+                    function(){
+                        //선택자가 slideDown();
+                        $(this).find(".drop-down").stop().slideDown();
+                        $(this).find("a").addClass("n-active");
+                        $(this).find(".line").addClass("l-active");
+                    },
+                    function(){
+                        //선택자가 slideUp();
+                        $(".drop-down").stop().slideUp();
+                        $(".main-nav>li>a").removeClass("n-active");
+                        $(".line").removeClass("l-active");
+                    }
+                );
+                // $(".main-nav").hover(
+                //     function(){
+                //         $(this).parent().find(".full-drop").stop().slideDown();
+                //     },
+                //     function(){
+                //         $(".full-drop").stop().slideUp();
+                //     }
+                // );
+                // 
+                $(".main-nav").mouseenter(function(){
+                    $(this).parent().find(".full-drop").stop().slideDown();
+                });
+                $(".full-drop").mouseleave(function(){
+                    $(".full-drop").stop().slideUp();
+                });
+                $(window).scroll(function(){
+                    var winScrollTop=$(this).scrollTop();
+                    if(winScrollTop > 200 ){
+                        $("nav").addClass("nav-top");
+                        $(".full-drop").css({
+                            top:50
+                        });
+                    }else{
+                        $("nav").removeClass("nav-top");
+                        $(".full-drop").css({
+                            top:145
+                        });
+
+                    }
+                });
+                
+                $(".thum>li>a").click(function(){
+                    //li의 p태그의 span의 텍스트를 가져온다.
+                    var $li_p_span=$(this).find("p>span").text();
+                    console.log($li_p_span)
+                    //li 이미지 속성을 가져온다(attr)
+                    var $li_img=$(this).find("img").attr("src");
+                    //li의 a의 설명 span을 가져온다.
+                    // var $li_span=$(this).find("a>span").html();
+                    var $li_span=$(this).children("span").html();
+                    $(".thum>li>a").addClass("filter");
+                    $(this).removeClass("filter");
+                    
+                    $(".thum-content").find("h3").text($li_p_span);
+                    $(".thum-content").find("img").attr("src",$li_img);
+                    $(".thum-content").find("p").html($li_span);
+                    $(".thum-content").show();
+
+                    return false;
+
+                });
+
+                $(".thum-close").click(function(){
+                    $(".thum-content").hide();
+                });
+
+                // img-hover의 너비를 가지고 와서 imb-hover높이로 설정
+                // 창의 사이즈가 변경되면 정한 너비가 변경되면서 높이도 다시 재설정
+                var $img_width=$(".img-hover").width(); // 너비 가져오기
+                $(".img-hover").css({
+                    height:$img_width
+                }); //문서가 실행되면 적용되고 사이즈가 변경되어도 내용은 변경되지 않는다.
+                console.log("img-hover의 너비"+$img_width)
+
+                //창의 너비가 변경되면
+                $(window).resize(function(){
+                    var $img_width=$(".img-hover").width(); // 너비 가져오기
+                    $(".img-hover").css({
+                        height:$img_width
+                    });
+                });
+                $(".thum2>li>a").click(function(){
+                    $(".img-hover").removeClass("img-trans");
+                    $(this).parent().find(".img-hover").addClass("img-trans");
+                    return false;
+                });
+                $(".hover-close").click(function(){
+                    $(".img-hover").removeClass("img-trans");
+                    console.log("클릭했음");
+                });
+                // $(".img-hover a").click(function(){
+                //     var $href=$(this).attr("href");
+                //     console.log("a href : "+$href);
+                //     window.open($href,"_self");
+                // });
+                $(".list-thum>li").click(function(){
+                    $(".modal-thum").show();
+                    var $list_p=$(this).find("p").text();
+                    $(".modal-body").find("h3").text($list_p);
+                    var $list_img=$(this).find("img").attr("src");
+                    $(".modal-body").find("img").attr("src", $list_img);
+                    var $list_span=$(this).find("span").html();
+                    $(".modal-body").find("p").html($list_span);
+                    $("html,body").css({
+                        overflow:"hidden"
+                    });
+                    return false;
+                });
+                $(".m-h-close").click(function(){
+                    $(".modal-thum").hide();
+                    $("html,body").css({
+                    overflow:"auto"
+                })
+            });
+            $(".tabs>li>a").click(function(){
+                $(".tab-contents").stop().animate({
+                    left:"100%"
+                });
+                $(this.hash).stop().animate({
+                    left:0
+                });
+                $(".tabs>li>a").removeClass("t-active");
+                $(this).addClass("t-active");
+                return false; 
+            });
+        });
+        </script>
+    </head>
+    <div>
+        <header>
+            <div class="header-wrap">
+                <div class="mobile-nav">
+                    <button class="m-bt"><i class="fa fa-bars"></i></button>
+                </div>
+                <h1>로고</h1>
+                
+                <div class="login-g">
+                    <a href="#">로그인</a> /
+                    <a href="#">회원가입</a> /
+                    <a href="#">마이페이지</a>
+                </div>
+                <nav>
+                    <ul class="main-nav">
+                        <li>
+                            <a href="#"><span>네비1</span>
+                                <hr class="line">
+                            </a>
+                            <!-- 서브메뉴 작성 -->
+                            <ul class="drop-down">
+                                <li><a href="#">네비1-1</a></li>
+                                <li><a href="#">네비1-2</a></li>
+                                <li><a href="#">네비1-3</a></li>
+                                <li><a href="#">네비1-4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span>네비2</span>
+                                <hr class="line">
+                            </a>
+                            <!-- 서브메뉴 작성 -->
+                            <ul class="drop-down">
+                                <li><a href="#">네비2-1</a></li>
+                                <li><a href="#">네비2-2</a></li>
+                                <li><a href="#">네비2-3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span>네비3</span>
+                                <hr class="line">
+                            </a>
+                            <!-- 서브메뉴 작성 -->
+                        </li>
+                        <li>
+                            <a href="#"><span>네비4</span>
+                                <hr class="line">
+                            </a>
+                            <!-- 서브메뉴 작성 -->
+                        </li>
+                        <li>
+                            <a href="#"><span>네비5</span>
+                                <hr class="line">
+                            </a>
+                            <!-- 서브메뉴 작성 -->
+                        </li>
+                        
+                    </ul>
+                    <div class="full-drop">
+                        <div class="full-content">
+                            목록의 공통 내용
+                        </div>
+                        
+                    </div>
+                </nav>
+            </div>     
+        </header>
+        
+        <div class="wrap">
+            <div class="thum-click">
+                <ul class="thum">
+                    <li>
+                        <a href="#">
+                            <img src="images/slider1.jpg" alt="이미지">
+                            <p>
+                                <span>썸네일 제품1</span><br>
+                                가격 : 10,000원
+                            </p>
+                            <span>설명1 설명1 설명1 설명1 설명1 <br>
+                                설명1 설명1 설명1 설명1 
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/slider2.jpg" alt="이미지">
+                            <p>
+                                <span>썸네일 제품2</span><br>
+                                가격 : 10,000원
+                            </p>
+                            <span>설명2 설명2 설명2 설명2  <br>
+                                설명2 설명2 설명2 설명2 설명2  
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/slider3.jpg" alt="이미지">
+                            <p>
+                                <span>썸네일 제품3</span><br>
+                                가격 : 10,000원
+                            </p>
+                            <span>설명3 설명3 설명3 설명3 설명3 <br>
+                                설명3 설명3 설명3 설명3  
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/slider4.jpg" alt="이미지">
+                            <p>
+                                <span>썸네일 제품4</span><br>
+                                가격 : 10,000원
+                            </p>
+                            <span>설명4 설명4 설명4 설명4 설명4  <br>
+                                설명4 설명4 설명4 설명4 
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="thum-content">
+                    <h3>제품제목</h3>
+                    <p>설명</p>
+                    <div>
+                        <img src="images/slider1.jpg" alt="이미지">
+                    </div>
+                    <button class="thum-close">X</button>
+                </div>
+            </div>
+            <div class="thum-hover">
+                <ul class="thum2">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="images/slider4.jpg" alt="이미지">
+                            </div>
+                            <p>제품 설명1</p>
+                        </a>
+                        <!-- hover했을 때 나올 내용 -->
+                        <div class="img-hover">
+                            <button class="hover-close">X</button>
+                            <a href="http://www.naver.com">
+                                <h3>제품 제목1</h3>
+                                <div>
+                                    <img src="images/slider4.jpg" alt="제품이미지">
+                                </div>
+                                <p>
+                                    청춘의 풀밭에 품고 사랑의 스며들어 힘있다. 돋고, 꽃이 위하여 뭇 바이며, 무엇을 인생에 그들은 끓는다. 우리의 유소년에게서 두기 트고, 붙잡아 사막이다. 불어 사람은 뛰노는 거선의 피어나기 있으랴? 꽃 무엇이 위하여 이것이다. 뼈 인생을 날카로우나 들어 피가 산야에 할지니, 약동하다. 얼음과 아니한 이상 못할 가치를 있음으로써 얼마나 풀이 그리하였는가?
+                                </p>
+                            </a>
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="images/slider5.jpg" alt="이미지">
+                            </div>
+                            <p>제품 설명2</p>
+                        </a>
+                        <!-- hover했을 때 나올 내용 -->
+                        <div class="img-hover">
+                            <button class="hover-close">X</button>
+                            <a href="http://www.nate.com">
+                                <h3>제품 제목2</h3>
+                                <div>
+                                    <img src="images/slider5.jpg" alt="제품이미지">
+                                </div>
+                                <p>
+                                    청춘의 풀밭에 품고 사랑의 스며들어 힘있다. 돋고, 꽃이 위하여 뭇 바이며, 무엇을 인생에 그들은 끓는다. 우리의 유소년에게서 두기 트고, 붙잡아 사막이다. 불어 사람은 뛰노는 거선의 피어나기 있으랴? 꽃 무엇이 위하여 이것이다. 뼈 인생을 날카로우나 들어 피가 산야에 할지니, 약동하다. 얼음과 아니한 이상 못할 가치를 있음으로써 얼마나 풀이 그리하였는가?
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="images/slider1.jpg" alt="이미지">
+                            </div>
+                            <p>제품 설명3</p>
+                        </a>
+                        <!-- hover했을 때 나올 내용 -->
+                        <div class="img-hover">
+                            <button class="hover-close">X</button>
+                            <a href="http://www.dothome.co.kr">
+                                <h3>제품 제목3</h3>
+                                <div>
+                                    <img src="images/slider1.jpg" alt="제품이미지">
+                                </div>
+                                <p>
+                                    청춘의 풀밭에 품고 사랑의 스며들어 힘있다. 돋고, 꽃이 위하여 뭇 바이며, 무엇을 인생에 그들은 끓는다. 우리의 유소년에게서 두기 트고, 붙잡아 사막이다. 불어 사람은 뛰노는 거선의 피어나기 있으랴? 꽃 무엇이 위하여 이것이다. 뼈 인생을 날카로우나 들어 피가 산야에 할지니, 약동하다. 얼음과 아니한 이상 못할 가치를 있음으로써 얼마나 풀이 그리하였는가?
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-thum-wrap">
+                <ul class="list-thum">
+                    <li>
+                        <a href="#">
+                        <div>
+                            <img src="images/slider1.jpg" alt="제품1">
+                        </div>
+                        <p>제품이름1</p>
+                        <span>제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 <br>
+                              제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 <br>
+                              제품1 제품1 제품1 제품1 제품1 제품1</span>                                 
+                        </a>
+                    </li>
+                    <li> 
+                        <a href="#">
+                        <div>
+                            <img src="images/slider2.jpg" alt="제품2">
+                        </div>
+                        <p>제품이름</p>
+                        <span>제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 <br>
+                              제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 제품1
+                              제품1 제품1 제품1 제품1 제품1 <br>
+                              제품1 제품1 제품1 제품1 제품1 제품1
+                            </span>                                 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="images/slider3.jpg" alt="제품3">
+                            </div>
+                            <p>제품이름</p>
+                            <span>제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 <br>
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 <br>
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                </span>                                 
+                            </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="images/slider4.jpg" alt="제품4">
+                            </div>
+                            <p>제품이름</p>
+                            <span>제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 <br>
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                  제품1 제품1 제품1 제품1 제품1 <br>
+                                  제품1 제품1 제품1 제품1 제품1 제품1
+                                </span>                                 
+                            </a>
+                    </li>
+                </ul>
+                <div class="modal-thum">
+                    <div class="modal-body">
+                    <h3>제품 이름4</h3>
+                    <div>
+                        <img src="images/slider1.jpg" alt="이미지">
+                    </div>
+                    <p>제품의 설명</p>
+                    <button class="m-h-close">x</button>
+                 </div>
+                </div>
+            </div>
+        <div class="tabs-wrap">
+            <ul class="tabs">
+                <li><a href="#tab1" class="t-active">탭제목1</a></li>
+                <li><a href="#tab2">탭제목2</a></li>
+                <li><a href="#tab3">탭제목3</a></li>
+                <li><a href="#tab4">탭제목4</a></li>
+            </ul>
+            <div class="tab-content-wrap">
+                <div class="tab-contents" id="tab1">
+                    <h3>탭 제목1</h3>
+                    <p>
+                        바이며, 대고, 얼음 운다. 굳세게 물방아 가치를 뭇 온갖 무엇이 아니다. 인간의 타오르고 든 어디 소담스러운 인생의 우리의 생명을 곳이 부패뿐이다. 더운지라 속에 않는 우리 보내는 꽃 간에 심장의 것이다. 있는 이 인생의 투명하되 힘있다. 아니한 몸이 열락의 무엇이 있으랴? 열락의 열매를 눈에 있는 무한한 가치를 바이며, 있을 힘차게 뿐이다. 피부가 얼마나 오아이스도 위하여 이상은 운다. 인간의 얼음 고행을 풍부하게 방황하여도, 같으며, 못할 시들어 그들은 것이다. 무엇을 고동을 구할 굳세게 교향악이다. 우리의 용감하고 노년에게서 이것이다.</p>
+                        <div>
+                            <img src="images/slider1.jpg" alt="이미지">
+                        </div>
+                </div>
+                <div class="tab-contents" id="tab2">
+                    <h3>탭 제목2</h3>
+                    <p>
+                        바이며, 대고, 얼음 운다. 굳세게 물방아 가치를 뭇 온갖 무엇이 아니다. 인간의 타오르고 든 어디 소담스러운 인생의 우리의 생명을 곳이 부패뿐이다. 더운지라 속에 않는 우리 보내는 꽃 간에 심장의 것이다. 있는 이 인생의 투명하되 힘있다. 아니한 몸이 열락의 무엇이 있으랴? 열락의 열매를 눈에 있는 무한한 가치를 바이며, 있을 힘차게 뿐이다. 피부가 얼마나 오아이스도 위하여 이상은 운다. 인간의 얼음 고행을 풍부하게 방황하여도, 같으며, 못할 시들어 그들은 것이다. 무엇을 고동을 구할 굳세게 교향악이다. 우리의 용감하고 노년에게서 이것이다.</p>
+                        <div>
+                            <img src="images/slider2.jpg" alt="이미지">
+                        </div>                              
+                </div>
+                <div class="tab-contents" id="tab3">
+                    <h3>탭 제목3</h3>
+                    <p>
+                        바이며, 대고, 얼음 운다. 굳세게 물방아 가치를 뭇 온갖 무엇이 아니다. 인간의 타오르고 든 어디 소담스러운 인생의 우리의 생명을 곳이 부패뿐이다. 더운지라 속에 않는 우리 보내는 꽃 간에 심장의 것이다. 있는 이 인생의 투명하되 힘있다. 아니한 몸이 열락의 무엇이 있으랴? 열락의 열매를 눈에 있는 무한한 가치를 바이며, 있을 힘차게 뿐이다. 피부가 얼마나 오아이스도 위하여 이상은 운다. 인간의 얼음 고행을 풍부하게 방황하여도, 같으며, 못할 시들어 그들은 것이다. 무엇을 고동을 구할 굳세게 교향악이다. 우리의 용감하고 노년에게서 이것이다.</p>
+                        <div>
+                            <img src="images/slider3.jpg" alt="이미지">
+                        </div>
+                 </div>
+                <div class="tab-contents" id="tab4">
+                    <h3>탭 제목4</h3>
+                    <p>
+                        바이며, 대고, 얼음 운다. 굳세게 물방아 가치를 뭇 온갖 무엇이 아니다. 인간의 타오르고 든 어디 소담스러운 인생의 우리의 생명을 곳이 부패뿐이다. 더운지라 속에 않는 우리 보내는 꽃 간에 심장의 것이다. 있는 이 인생의 투명하되 힘있다. 아니한 몸이 열락의 무엇이 있으랴? 열락의 열매를 눈에 있는 무한한 가치를 바이며, 있을 힘차게 뿐이다. 피부가 얼마나 오아이스도 위하여 이상은 운다. 인간의 얼음 고행을 풍부하게 방황하여도, 같으며, 못할 시들어 그들은 것이다. 무엇을 고동을 구할 굳세게 교향악이다. 우리의 용감하고 노년에게서 이것이다.</p>
+                        <div>
+                            <img src="images/slider4.jpg" alt="이미지">
+                        </div>
+                </div>
+            </div>
+        </div>
+          
+        </div>
+        <footer>
+            <div class="footer-wrap">&copy; 2022.03.10</div>
+        </footer>
+        
+    </body>
+
+</html>
