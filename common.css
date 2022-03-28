@@ -1,127 +1,108 @@
 @charset "utf-8";
-
 html,body{
-    font-family:"맑은 고딕";
-    color:black;
-    margin:0;   
-    height:100%;
+  height: 100%;
+  font-family: "맑은 고딕";
+  margin: 0;
 }
-
 a{
-    color:#333333;
-    text-decoration: none;
+  text-decoration: none;
+  color: black;
 }
 a:hover{
-    color:black;
-}
-img{
-    vertical-align: bottom;
+  color: #666666;
 }
 table,td,th{
-    border:1px solid black;
-    border-collapse:collapse;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+img{
+  vertical-align: bottom;
 }
 *{
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 header{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:9999999;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0,0,0,0.5);
+}
+.container{
+  height: 100%;
+  position: relative;
+  max-width: 1930px;
+  margin: auto;
 }
 .header-wrap{
-    width:100%;
-    max-width:1920px;
-    height:70px;
-    margin:auto;
-    left:0;
-    top:0;
-    border:1px solid transparent;
-    background-color:rgba(0,0,0,0.3);
-    z-index:9999999;
-    }
-
-.container{
-    width:100%;
-    max-width:1920px;
-    margin:auto;
-    height:100%;
-    position:relative;
-
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+  height: 100%;
 }
-
-footer{
-    width:100%; /* main의 너비를 사용 */
-    height:100px; /*푸터의 높이 변동사항 */
-    position:absolute;
-    left:0;
-    bottom:0;
-    margin:auto;
-    border:1px solid black; /* 구분하기 위한 테두리, 확인 후 삭제 또는 변경 */
-    background-color:black;
-    color:white;
-}
-.footer-wrap{
-    width:100%;
-    max-width:1920px;
-    height:100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;;
-}
-
 h1{
-    width:150px;
-    height:50px;
-    background-color:#999999;
-    margin:auto;
-    margin-left:50px;
-    margin-top:10px;
-    text-align:center;
-    float:left;
+  width: 200px;
+  height: 50px;
+  float: left;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 20px;
 }
-
 nav{
-    width:60%;
-    height:50px;
-    margin:auto;
-    border-bottom:1px solid transparent;
-    background-color:transparent;
-    float:right;
-    margin-top:10px;
-    margin-right:10px;
+  width: 500px;
+  height: 50px;
+  background-color: white;
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 .main-nav{
-    width:100%;
-    height:100%;
-    padding:0;
-    margin:auto;
-    list-style:none;
-    display:flex;
-    justify-content: right;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
 }
 .main-nav>li{
-    width:25%;
+  width: 20%;
+  height: 100%;
 }
 .main-nav>li>a{
-    display:block;
-    width:100%;
-    height:100%;
-    background:transparent;
-    text-align:center;
-    padding:10px 0;
-    color:white;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 0;
+  width: 100%;
+  height: 100%;
 }
-.line{
-    width:50%;
-    height:1px;
-    background-color:red;
-    margin:auto;
-    margin-top:10px;
-    border:none;
-
+.main-nav>li>a:hover{
+  background-color: pink;
+}
+#logo{
+  fill:none;
+  stroke:#231F20;
+  stroke-width:3.5635;stroke-miterlimit:10;
+  stroke-dasharray:300px ;
+  stroke-dashoffset: 300px;
+  animation-name: logo-ani;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count:infinite ;
+  animation-direction: alternate;
+}
+h1{
+  text-align: center;
+}
+h1 #Layer_1{
+  width: 40%;
+}
+@keyframes logo-ani{
+  0%{
+    stroke-dashoffset: 300px;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
 }
